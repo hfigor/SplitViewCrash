@@ -52,6 +52,8 @@ class MasterViewController: UITableViewController {
                 let object = objects[indexPath.row] as! NSDate
                 let controller = (segue.destination as! UINavigationController).topViewController as! DetailViewController
                 controller.detailItem = object
+                //controller.anotherLabel.text = "Pizza!! \(indexPath.row)" this crashed bc ARC was killing anotherLabel var.
+                controller.pizzaMessage = "Pizza!! \(indexPath.row)" // this uses the didSet in detailViewController
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
             }
